@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jesus Olvera-Lara\\Documents\\School Folder\\College\\c# midter,\\midTerm\\midTerm\\midTerm.csproj",
+      "projectUniqueName": "C:\\Users\\Jesus Olvera-Lara\\Documents\\School Folder\\College\\c# midter,\\test2\\midTerm.csproj",
       "projectName": "midTerm",
-      "projectPath": "C:\\Users\\Jesus Olvera-Lara\\Documents\\School Folder\\College\\c# midter,\\midTerm\\midTerm\\midTerm.csproj",
+      "projectPath": "C:\\Users\\Jesus Olvera-Lara\\Documents\\School Folder\\College\\c# midter,\\test2\\midTerm.csproj",
       "packagesPath": "C:\\Users\\Jesus Olvera-Lara\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jesus Olvera-Lara\\Documents\\School Folder\\College\\c# midter,\\midTerm\\midTerm\\obj\\",
+      "outputPath": "C:\\Users\\Jesus Olvera-Lara\\Documents\\School Folder\\College\\c# midter,\\test2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

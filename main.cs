@@ -1,3 +1,6 @@
-public class main{
-    
+public static class main{
+    private static void Main()
+    {
+        Console.WriteLine();
+    }
 }
