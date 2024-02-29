@@ -45,6 +45,11 @@ public abstract class Word
     }
 
     public abstract void addAfters(string word);
+	
+	public string nextWord()
+	{
+		
+	}
 
     public override string ToString()
     {
