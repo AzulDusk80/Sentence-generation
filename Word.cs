@@ -1,13 +1,14 @@
 public abstract class Word
 {
+    Random rand = new Random();
     protected string name;
     protected List<string> befores = new List<string>();
     protected List<string> afters = new List<string>();
 
-    public Word(string name, string befores, string afters){
+    public Word(string name, string before, string after){
         this.name = name;
-        addBefores(befores);
-        addAfters(afters);
+        addBefores(before);
+        addAfters(after);
     }
 
     public string Name{
@@ -48,11 +49,12 @@ public abstract class Word
 	
 	public string nextWord()
 	{
-		
+        int index = rand.Next(0, afters.Count);
+        return afters[index];
 	}
 
     public override string ToString()
     {
-        return $"{Name}\nParent: {toStringBefores()}\nChilderens: {toStringAfters()}";
+        return $"Name: {Name}\nParent: {toStringBefores()}\nChilderens: {toStringAfters()}";
     }
 }
