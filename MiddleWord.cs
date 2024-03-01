@@ -1,6 +1,6 @@
-﻿public class MiddleWord : Word
+public class MiddleWord : Word
 {
-	public MiddleWord(string name, string after, string before) : base(name, after, before)
+	public MiddleWord(string name, string after, string before) : base(name, before, after)
 	{
 	}
 
