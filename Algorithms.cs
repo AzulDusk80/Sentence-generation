@@ -1,55 +1,50 @@
+using System.Collections.Generic;
+
 public class Algorithms
 {	
 	public void sortList(List<Word> words)
 	{
-		mergeSort(words, 0, words.Count - 1);
+		mergeSort(words, 0, words.Count - 1);   //merge sort based on Name
 	}
 	
-	public int indexList(string word, List<Word> words)
+	public int indexList(string word, List<Word> words) //binary searches to determine if it is in the list based on Name
 	{
-		int middle = (0 + words.Count - 1) / 2;
-		if(String.Compare(words[middle].Name, word) == 0)
-			return middle;
-		else if(middle == words.Count)
+        int min = 0;
+        int max = words.Count - 1;
+
+		while (min <= max)
 		{
-			return -1;
-		}
-		else if(String.Compare(words[middle].Name, word) < 0) //in the second half
-		{
-			int n = middle - 0 + 1;
-			List<Word> rightArray = new List<Word>();
-			for (int i = 0; i < n; i++)
+			int middle = min + (max - min) / 2; //to move the we minus max with min, otherwise it will loop forever if found in the second half
+			if (String.Compare(words[middle].Name, word) == 0) //It has been found
+				return middle;
+			else if (String.Compare(words[middle].Name, word) < 0) //in the second half
 			{
-				rightArray.Add(arr[0 + i]);
+				min = middle + 1;
 			}
-			return indexList(word, rightArray);
-		}
-		else //in first half
-		{
-			List<Word> leftArray = new List<Word>();
-			int n = words.Count - 1 - middle;
-			List<Word> leftArray = new List<Word>();
-			for (int i = 0; i < n; i++)
+			else //in first half
 			{
-				leftArray.Add(arr[middle + i]);
+				max = middle - 1;
 			}
-			return indexList(word, leftArray);
 		}
-			
+
 		return -1;
 	}
 
-	public bool duplicates(string word, List<Word> word)
+	public bool duplicates(string word, List<Word> words)   //using indexList finds out if it is duplicate
 	{
-		
+        if(indexList(word, words) != -1)
+            return true;
+
+        return false;
 	}
 	
-	public void insertList(Word word, List<Word> words)
+	public void insertList(Word word, List<Word> words) //insorts the word so that it will always stay sorted
 	{
-		
+		words.Add(word);
+        sortList(words);
 	}
 	
-	public void merge(List<> arr, int left, int middle, int right) 
+	public void merge(List<Word> arr, int left, int middle, int right) 
 	{
 		int n1 = middle - left + 1;
         int n2 = right - middle;
@@ -109,9 +104,47 @@ public class Algorithms
 	    if (left < right)
         {
             int middle = (left + right) / 2;
-            MergeSort(arr, left, middle);
-            MergeSort(arr, middle + 1, right);
-            Merge(arr, left, middle, right);
+            mergeSort(arr, left, middle);
+            mergeSort(arr, middle + 1, right);
+            merge(arr, left, middle, right);
         }
 	}
+
+    public bool isEndWord(string word)
+    {
+        if (word.Contains('.') || word.Contains('!') || word.Contains('?'))
+            return true;
+        return false;
+    }
+
+    public void addStringArrayToList(String[] split, List<Word> words)
+    {
+        insertList(new StartWord(split[0], split[1]), words); //first word must be start word with null as parent
+
+        for (int i = 1; i < split.Length - 1; i++)
+        {
+            string before = split[i - 1];
+            string after = split[i + 1];
+            String current = split[i];
+
+            if (duplicates(current, words))  //duplicate, add parent and child
+            {
+                int index = indexList(current, words);
+                words[index].addAfters(after);
+                words[index].addBefores(before);
+            }
+            else    //not a duplicate, add word
+            {
+                if (isEndWord(current))
+                    insertList(new EndWord(current, before, after), words);
+                else if (isEndWord(before))
+                    insertList(new StartWord(current, after, before), words);
+                else
+                    insertList(new MiddleWord(current, after, before), words);
+            }
+
+        }
+
+        insertList(new EndWord(split[split.Length - 1], split[split.Length - 2]), words); //last word must be start word with null as child
+    }
 }
