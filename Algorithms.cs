@@ -147,4 +147,50 @@ public class Algorithms
 
         insertList(new EndWord(split[split.Length - 1], split[split.Length - 2]), words); //last word must be start word with null as child
     }
+
+
+    public void addWordBasedOnString(String name, String[] before, String[] after, List<Word> words)
+    {
+        if (!duplicates(name, words))
+        {
+            if(isEndWord(name))
+            {
+                insertList(new EndWord(name, before[0], after[0]), words);
+            }
+            else if (isEndWord(before[0]))//if one before is an end word, the overall word is a start word
+            {
+                insertList(new StartWord(name, before[0], after[0]), words);
+            }
+            else
+            {
+                insertList(new MiddleWord(name, before[0], after[0]), words);
+            }
+
+            int index = indexList(name, words);
+
+            for(int i = 1; i < before.Length; i++)
+            {
+                words[index].addBefores(before[i]);
+            }
+            for (int i = 1; i < after.Length; i++)
+            {
+                words[index].addAfters(after[i]);
+            }
+        }
+        else
+        {
+            int index = indexList(name, words);
+
+            for (int i = 0; i < before.Length; i++)
+            {
+                words[index].addBefores(before[i]);
+            }
+            for (int i = 0; i < after.Length; i++)
+            {
+                words[index].addAfters(after[i]);
+            }
+        }
+
+
+    }
 }
