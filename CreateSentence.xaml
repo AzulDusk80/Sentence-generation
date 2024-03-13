@@ -1,0 +1,21 @@
+<Window x:Class="WpfApp1.CreateSentence"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="CreateSentence" Height="450" Width="800">
+    <Grid>
+        <Label Content="Write an incomplete sentence!&#xD;&#xA;Do not end it with a space" HorizontalAlignment="Center" Height="88" Margin="0,26,0,0" VerticalAlignment="Top" Width="330" FontSize="22" FontWeight="Bold" Foreground="#FF25212B" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="userInput" HorizontalAlignment="Left" Height="91" Margin="167,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="398"/>
+        <Button x:Name="createButton" Content="Generate" HorizontalAlignment="Left" Height="91" Margin="585,99,0,0" VerticalAlignment="Top" Width="103" Click="GenButton_Click"/>
+        <Label x:Name="generatedLabel" Content="" HorizontalAlignment="Left" Height="43" Margin="167,217,0,0" VerticalAlignment="Top" Width="521" FontSize="18" FontWeight="Bold"/>
+        <TextBlock x:Name="outputSentence" HorizontalAlignment="Left" Margin="114,260,0,0" VerticalAlignment="Top" Height="93" Width="616" TextWrapping="Wrap" Text=""/>
+        <Button Content="Post" HorizontalAlignment="Center" Height="50" Margin="0,358,0,0" VerticalAlignment="Top" Width="124" Visibility="Hidden" Click="PostButton_Click"/>
+        <Button Content="Save" HorizontalAlignment="Left" Height="50" Margin="603,358,0,0" VerticalAlignment="Top" Width="124" Click="SaveButton_Click"/>
+        <Button Content="Back" HorizontalAlignment="Left" Height="50" Margin="117,358,0,0" VerticalAlignment="Top" Width="124" Click="BackButton_Click"/>
+
+
+    </Grid>
+</Window>

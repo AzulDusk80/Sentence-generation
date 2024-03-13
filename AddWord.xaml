@@ -1,0 +1,22 @@
+<Window x:Class="WpfApp1.AddWord"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Add Word" Height="450" Width="800">
+    <Grid>
+        <Label x:Name="title" Content="&#x9;&#x9;Add a word" HorizontalAlignment="Center" Height="64" Margin="0,43,0,0" VerticalAlignment="Top" Width="530" FontSize="22" FontWeight="Bold"/>
+        <Label Content="Word Name:" HorizontalAlignment="Left" Height="36" Margin="217,156,0,0" VerticalAlignment="Top" Width="98" FontSize="16"/>
+        <Label Content="            Words after it:&#xD;&#xA;Use space to separate" HorizontalAlignment="Left" Height="52" Margin="148,253,0,0" VerticalAlignment="Top" Width="167" FontSize="16"/>
+        <Label Content="         Words before it:&#xD;&#xA;Use space to separate" HorizontalAlignment="Left" Height="60" Margin="148,0,0,0" VerticalAlignment="Center" Width="167" FontSize="16"/>
+        <Label x:Name="warningLabel" HorizontalAlignment="Center" Height="36" Margin="0,112,0,0" VerticalAlignment="Top" Width="418" Foreground="Red" FontSize="16" Visibility="Hidden"/>
+        <Button Content="Back" HorizontalAlignment="Left" Height="50" Margin="511,340,0,0" VerticalAlignment="Top" Width="98" Click="BackButton_Click"/>
+        <Button x:Name="addButton" Content="Add Word" HorizontalAlignment="Center" Height="50" Margin="0,340,0,0" VerticalAlignment="Top" Width="106" Click="AddButton_Click"/>
+        <TextBox x:Name="name" HorizontalAlignment="Left" Height="36" Margin="333,156,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="208"/>
+        <TextBox x:Name="befores" HorizontalAlignment="Left" Height="60" Margin="333,197,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="208"/>
+        <TextBox x:Name="afters" HorizontalAlignment="Left" Height="60" Margin="333,262,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="208"/>
+
+    </Grid>
+</Window>
